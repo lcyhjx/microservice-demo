@@ -1,0 +1,303 @@
+{
+  "ReRoutes": [
+
+    //基本路由
+    //{
+    //  "DownstreamPathTemplate": "/api/orders",
+    //  "DownstreamScheme": "http",
+    //  "DownstreamHostAndPorts": [
+    //    {
+    //      "Host": "localhost",
+    //      "Port": 5001
+    //    }
+    //  ],
+    //  "UpstreamPathTemplate": "/api/orders",
+    //  "UpstreamHttpMethod": [ "Get" ]
+    //}
+
+    //占位符
+    //{
+    //  "DownstreamPathTemplate": "/api/{everything}",
+    //  "DownstreamScheme": "http",
+    //  "DownstreamHostAndPorts": [
+    //    {
+    //      "Host": "localhost",
+    //      "Port": 5002
+    //    }
+    //  ],
+    //  "UpstreamPathTemplate": "/api/{everything}",
+    //  "UpstreamHttpMethod": [ "Get" ]
+    //}
+
+    //万能模板
+    //{
+    //  "DownstreamPathTemplate": "/{url}",
+    //  "DownstreamScheme": "http",
+    //  "DownstreamHostAndPorts": [
+    //    {
+    //      "Host": "localhost",
+    //      "Port": 5001
+    //    }
+    //  ],
+    //  "UpstreamPathTemplate": "/{url}",
+    //  "UpstreamHttpMethod": [ "Get" ]
+    //}
+
+
+    //优先级
+    //{
+    //  "DownstreamPathTemplate": "/api/products",
+    //  "DownstreamScheme": "http",
+    //  "DownstreamHostAndPorts": [
+    //    {
+    //      "Host": "localhost",
+    //      "Port": 5002
+    //    }
+    //  ],
+    //  "UpstreamPathTemplate": "/api/products",
+    //  "UpstreamHttpMethod": [ "Get" ],
+    //  "Priority": 0
+    //},
+    //{
+    //  "DownstreamPathTemplate": "/api/categories",
+    //  "DownstreamScheme": "http",
+    //  "DownstreamHostAndPorts": [
+    //    {
+    //      "Host": "localhost",
+    //      "Port": 5002
+    //    }
+    //  ],
+    //  "UpstreamPathTemplate": "/api/{everything}",
+    //  "UpstreamHttpMethod": [ "Get" ],
+    //  "Priority": 1
+    //}
+
+    //查询参数
+    //{
+    //  "DownstreamPathTemplate": "/api/orders/{id}",
+    //  "DownstreamScheme": "http",
+    //  "DownstreamHostAndPorts": [
+    //    {
+    //      "Host": "localhost",
+    //      "Port": 5001
+    //    }
+    //  ],
+    //  "UpstreamPathTemplate": "/api/orders?id={id}",
+    //  "UpstreamHttpMethod": [ "Get" ]
+    //}
+
+    //请求聚合
+    //{
+    //  "DownstreamPathTemplate": "/api/orders",
+    //  "DownstreamScheme": "http",
+    //  "DownstreamHostAndPorts": [
+    //    {
+    //      "Host": "localhost",
+    //      "Port": 5001
+    //    }
+    //  ],
+    //  "UpstreamPathTemplate": "/api/orders",
+    //  "UpstreamHttpMethod": [ "Get" ],
+    //  "Key": "Orders"
+    //},
+    //{
+    //  "DownstreamPathTemplate": "/api/products",
+    //  "DownstreamScheme": "http",
+    //  "DownstreamHostAndPorts": [
+    //    {
+    //      "Host": "localhost",
+    //      "Port": 5002
+    //    }
+    //  ],
+    //  "UpstreamPathTemplate": "/api/products",
+    //  "UpstreamHttpMethod": [ "Get" ],
+    //  "Priority": 0,
+    //  "Key": "Products"
+    //}
+
+    //限流
+    //{
+    //  "DownstreamPathTemplate": "/api/orders",
+    //  "DownstreamScheme": "http",
+    //  "DownstreamHostAndPorts": [
+    //    {
+    //      "Host": "localhost",
+    //      "Port": 5001
+    //    }
+    //  ],
+    //  "UpstreamPathTemplate": "/api/orders",
+    //  "UpstreamHttpMethod": [ "Get" ],
+    //  "RateLimitOptions": {
+    //    "ClientWhitelist": [],
+    //    "EnableRateLimiting": true,
+    //    "Period": "1s",
+    //    "PeriodTimespan": 100,
+    //    "Limit": 1
+    //  }
+    //}
+
+    //熔断
+    //{
+    //  "DownstreamPathTemplate": "/api/orders",
+    //  "DownstreamScheme": "http",
+    //  "DownstreamHostAndPorts": [
+    //    {
+    //      "Host": "localhost",
+    //      "Port": 5001
+    //    }
+    //  ],
+    //  "UpstreamPathTemplate": "/api/orders",
+    //  "UpstreamHttpMethod": [ "Get" ],
+    //  "QoSOptions": {
+    //    "ExceptionsAllowedBeforeBreaking": 1,
+    //    "DurationOfBreak": 20000,
+    //    "TimeoutValue": 2000
+    //  }
+    //}
+
+    //缓存
+    //{
+    //  "DownstreamPathTemplate": "/api/orders",
+    //  "DownstreamScheme": "http",
+    //  "DownstreamHostAndPorts": [
+    //    {
+    //      "Host": "localhost",
+    //      "Port": 5001
+    //    }
+    //  ],
+    //  "UpstreamPathTemplate": "/api/orders",
+    //  "UpstreamHttpMethod": [ "Get" ],
+    //  "FileCacheOptions": {
+    //    "TtlSeconds": 60,
+    //    "Region": "orders"
+    //  }
+    //}
+
+    //Header转换
+    //{
+    //  "DownstreamPathTemplate": "/api/shopping-carts",
+    //  "DownstreamScheme": "http",
+    //  "DownstreamHostAndPorts": [
+    //    {
+    //      "Host": "localhost",
+    //      "Port": 5001
+    //    }
+    //  ],
+    //  "DownstreamHeaderTransform": {
+    //    "devops": "rdc"
+    //  },
+    //  "UpstreamPathTemplate": "/api/shopping-carts",
+    //  "UpstreamHttpMethod": [ "Get" ],
+    //  "UpstreamHeaderTransform": {
+    //    "mingyuanyun": "rdc",
+    //    "CI": "msbuild, jenkins",
+    //    "Location": "http://localhost:5001, {BaseUrl}"
+    //  }
+    //}
+
+    //HTTP方法转换
+    //{
+    //  "DownstreamPathTemplate": "/api/shopping-carts",
+    //  "DownstreamScheme": "http",
+    //  "DownstreamHttpMethod": "POST",
+    //  "DownstreamHostAndPorts": [
+    //    {
+    //      "Host": "localhost",
+    //      "Port": 5001
+    //    }
+    //  ],
+    //  "DownstreamHeaderTransform": {
+    //    "devops": "rdc"
+    //  },
+    //  "UpstreamPathTemplate": "/api/shopping-carts",
+    //  "UpstreamHttpMethod": [ "Get" ]
+    //}
+
+    //Reqeustid/correlationid
+    //{
+    //  "DownstreamPathTemplate": "/api/orders",
+    //  "DownstreamScheme": "http",
+    //  "DownstreamHostAndPorts": [
+    //    {
+    //      "Host": "localhost",
+    //      "Port": 5001
+    //    }
+    //  ],
+    //  "UpstreamPathTemplate": "/api/orders",
+    //  "UpstreamHttpMethod": [ "Get" ]
+    //}
+
+    //负载均衡
+    //{
+    //  "DownstreamPathTemplate": "/api/orders",
+    //  "DownstreamScheme": "http",
+    //  "DownstreamHostAndPorts": [
+    //    {
+    //      "Host": "localhost",
+    //      "Port": 5001
+    //    },
+    //    {
+    //      "Host": "localhost",
+    //      "Port": 6001
+    //    }
+    //  ],
+    //  "UpstreamPathTemplate": "/api/orders",
+    //  "UpstreamHttpMethod": [ "Get" ],
+    //  "LoadBalancerOptions": {
+    //    "Type": "RoundRobin"
+    //  }
+    //}
+
+    //自定义中间件
+    {
+      "DownstreamPathTemplate": "/api/shopping-carts",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5001
+        }
+      ],
+      "UpstreamPathTemplate": "/api/shopping-carts",
+      "UpstreamHttpMethod": [ "Get" ]
+    }
+  ],
+
+  //请求聚合
+  //"Aggregates": [
+  //  {
+  //    "ReRouteKeys": [
+  //      "Orders",
+  //      "Products"
+  //    ],
+  //    "UpstreamPathTemplate": "/api/aggregates"
+  //  }
+  //],
+
+  //自定义请求聚合
+  //"Aggregates": [
+  //  {
+  //    "ReRouteKeys": [
+  //      "Orders",
+  //      "Products"
+  //    ],
+  //    "UpstreamPathTemplate": "/api/aggregates",
+  //    "Aggregator": "FakeDefinedAggregator"
+  //  }
+  //],
+
+  "GlobalConfiguration": {
+    "BaseUrl": "http://localhost:5000",
+    //限流
+    //"RateLimitOptions": {
+    //  "QuotaExceededMessage": "您的请求量超过了配额1/10分钟",
+    //  "HttpStatusCode": 999
+    //}
+
+    //Request Id/Correlation Id
+    "RequestIdKey": "MyyRequestId"
+  }
+}
+
+
+//copy D:\MyPrograme\microservice\rdc-ocelot-demo\ocelot-gateway\Ocelot.json D:\MyPrograme\microservice\rdc-ocelot-demo\ocelot-gateway\bin\Debug\netcoreapp3.1 /Y

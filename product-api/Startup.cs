@@ -10,7 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using product_api.ConsulServer.ConsulApi;
+using util;
 
 namespace product_api
 {
@@ -48,15 +48,15 @@ namespace product_api
                 endpoints.MapControllers();
             });
 
-            //ConsulEntity consulEntity = new ConsulEntity
-            //{
-            //    Ip = Configuration["ip"],
-            //    Port = int.Parse(Configuration["port"]),
-            //    ServiceName = "zyz",
-            //    ConsulIp = Configuration["Consul:IP"],
-            //    ConsulPort = Convert.ToInt32(Configuration["Consul:Port"])
-            //};
-            //app.RegisterConsul(consulEntity);
+            ConsulEntity consulEntity = new ConsulEntity
+            {
+                Ip = Configuration["Ip"],
+                Port = int.Parse(Configuration["Port"]),
+                ServiceName = Configuration["Service:Name"],
+                ConsulIp = Configuration["Consul:Ip"],
+                ConsulPort = Convert.ToInt32(Configuration["Consul:Port"])
+            };
+            app.RegisterConsul(consulEntity);
         }
     }
 }

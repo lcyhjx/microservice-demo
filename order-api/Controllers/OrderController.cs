@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -26,8 +22,8 @@ namespace order_api.Controllers
 
             //Task.Delay(3000).Wait();
             //Console.WriteLine("order api被调用了");
-            return new string[] { "刘明1的订单", "王天1的订单" };
-            //return new string[] { "帅的订单", "RDC的订单" };
+            return new string[] { "刘明的订单", "王天的订单" };
+            //return new string[] { "帅的订单", "我的订单" };
             //throw new Exception("获取所有订单出错");
         }
 

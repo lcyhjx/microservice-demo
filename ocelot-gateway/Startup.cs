@@ -16,6 +16,7 @@ using Ocelot.Provider.Polly;
 using Ocelot.Cache.CacheManager;
 using Microsoft.AspNetCore.Http;
 using Ocelot.Administration;
+using Ocelot.Provider.Consul;
 //using Ocelot.Provider.Consul;
 //using Ocelot.ConfigAuthLimitCache.DependencyInjection;
 //using Ocelot.ConfigAuthLimitCache.Middleware;
@@ -37,6 +38,7 @@ namespace ocelot_gateway
             services.AddSingleton<FakeDepdendency>();
 
             services.AddOcelot()
+                .AddConsul()
                 .AddPolly()
                 .AddCacheManager(x =>
                 {                    

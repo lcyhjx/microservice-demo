@@ -2,10 +2,9 @@
 using Microsoft.AspNetCore.Builder;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Text;
 
-namespace delivery_api
+namespace util
 {
     public static class AppBuilderExtensions
     {
@@ -32,8 +31,8 @@ namespace delivery_api
 
             var httpCheck = new AgentServiceCheck()
             {
-                DeregisterCriticalServiceAfter = TimeSpan.FromSeconds(5),//服务启动多久后注册
-                Interval = TimeSpan.FromSeconds(10),//健康监测
+                DeregisterCriticalServiceAfter = TimeSpan.FromSeconds(2),//服务启动多久后注册
+                Interval = TimeSpan.FromSeconds(5),//健康监测
                 HTTP = string.Format($"http://{serviceEntity.Ip}:{serviceEntity.Port}/api/health"),//心跳检测地址
                 Timeout = TimeSpan.FromSeconds(5)
             };
@@ -43,7 +42,7 @@ namespace delivery_api
             {
 
                 Checks = new[] { httpCheck },
-                ID = "delivery-service-" + Guid.NewGuid().ToString(),//服务编号不可重复
+                ID = serviceEntity.ServiceName + Guid.NewGuid().ToString(),//服务编号不可重复
                 Name = serviceEntity.ServiceName,//服务名称
                 Address = serviceEntity.Ip,//ip地址
                 Port = serviceEntity.Port//端口

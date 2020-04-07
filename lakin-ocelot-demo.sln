@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "order-api", "order-api\orde
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "product-api", "product-api\product-api.csproj", "{E357C0A3-2D27-4EB2-B00C-958D8E66983B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "delivery-api", "delivery-api\delivery-api.csproj", "{85B01BD2-63D3-4C94-8741-7176F918BF5D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "delivery-api", "delivery-api\delivery-api.csproj", "{85B01BD2-63D3-4C94-8741-7176F918BF5D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "util", "util\util.csproj", "{F20ECE2D-03F6-413C-A8BE-0FAF52BC5CBE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{85B01BD2-63D3-4C94-8741-7176F918BF5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{85B01BD2-63D3-4C94-8741-7176F918BF5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{85B01BD2-63D3-4C94-8741-7176F918BF5D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F20ECE2D-03F6-413C-A8BE-0FAF52BC5CBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F20ECE2D-03F6-413C-A8BE-0FAF52BC5CBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F20ECE2D-03F6-413C-A8BE-0FAF52BC5CBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F20ECE2D-03F6-413C-A8BE-0FAF52BC5CBE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

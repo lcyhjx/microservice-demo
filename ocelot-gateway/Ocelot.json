@@ -249,17 +249,26 @@
     //}
 
     //自定义中间件
+    //{
+    //  "DownstreamPathTemplate": "/api/shopping-carts",
+    //  "DownstreamScheme": "http",
+    //  "DownstreamHostAndPorts": [
+    //    {
+    //      "Host": "localhost",
+    //      "Port": 5001
+    //    }
+    //  ],
+    //  "UpstreamPathTemplate": "/api/shopping-carts",
+    //  "UpstreamHttpMethod": [ "Get" ]
+    //}
+
+    //服务发现
     {
-      "DownstreamPathTemplate": "/api/shopping-carts",
+      "DownstreamPathTemplate": "/api/orders",
       "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": 5001
-        }
-      ],
-      "UpstreamPathTemplate": "/api/shopping-carts",
-      "UpstreamHttpMethod": [ "Get" ]
+      "UpstreamPathTemplate": "/api/orders",
+      "UpstreamHttpMethod": [ "Get" ],
+      "ServiceName": "order-service"
     }
   ],
 
@@ -295,7 +304,14 @@
     //}
 
     //Request Id/Correlation Id
-    "RequestIdKey": "MyyRequestId"
+    //"RequestIdKey": "MyyRequestId"
+
+    //服务发现
+    "ServiceDiscoveryProvider": {
+      "Host": "localhost",
+      "Port": 8500,
+      "Type": "Consul"
+    }
   }
 }
 

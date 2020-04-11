@@ -1,5 +1,6 @@
 ﻿using Consul;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -16,8 +17,8 @@ namespace util
         /// <param name="lifetime"></param>
         /// <param name="serviceEntity"></param>
         /// <returns></returns>
-        public static IApplicationBuilder RegisterConsul(this IApplicationBuilder app, ConsulEntity serviceEntity)
-        //public static IApplicationBuilder RegisterConsul(this IApplicationBuilder app, IApplicationLifetime lifetime, ConsulEntity serviceEntity)
+        //public static IApplicationBuilder RegisterConsul(this IApplicationBuilder app, ConsulEntity serviceEntity)
+        public static IApplicationBuilder UseConsul(this IApplicationBuilder app, IApplicationLifetime lifetime, ConsulEntity serviceEntity)
         {
             //consul地址
             Action<ConsulClientConfiguration> configClient = (consulConfig) =>
@@ -50,6 +51,12 @@ namespace util
             };
             //注册服务
             consulClient.Agent.ServiceRegister(registrtion);
+
+            //取消注册
+            //lifetime.ApplicationStopping.Register(() =>
+            //{
+            //    consulClient.Agent.ServiceDeregister(registrtion.ID).Wait();
+            //});
 
             return app;
         }

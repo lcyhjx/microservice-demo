@@ -263,13 +263,25 @@
     //}
 
     //服务发现
-    {
-      "DownstreamPathTemplate": "/api/orders",
-      "DownstreamScheme": "http",
-      "UpstreamPathTemplate": "/api/orders",
-      "UpstreamHttpMethod": [ "Get" ],
-      "ServiceName": "order-service"
-    }
+    //{
+    //  "DownstreamPathTemplate": "/api/orders",
+    //  "DownstreamScheme": "http",
+    //  "UpstreamPathTemplate": "/api/orders",
+    //  "UpstreamHttpMethod": [ "Get" ],
+    //  "ServiceName": "order-service"
+    //}
+
+    //服务发现 + 负载均衡
+    //{
+    //  "DownstreamPathTemplate": "/api/orders",
+    //  "DownstreamScheme": "http",
+    //  "UpstreamPathTemplate": "/api/orders",
+    //  "UpstreamHttpMethod": [ "Get" ],
+    //  "ServiceName": "order-service",
+    //  "LoadBalancerOptions": {
+    //    "Type": "RoundRobin"
+    //  }
+    //}
   ],
 
   //请求聚合
@@ -295,13 +307,33 @@
   //  }
   //],
 
+  //动态路由限流配置
+  "DynamicReRoutes": [
+    {
+      "ServiceName": "order-service",
+      "RateLimitRule": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": true,
+        "Period": "10m",
+        "PeriodTimespan": 10,
+        "Limit": 1
+      }
+    }
+  ],
+
   "GlobalConfiguration": {
     "BaseUrl": "http://localhost:5000",
     //限流
     //"RateLimitOptions": {
     //  "QuotaExceededMessage": "您的请求量超过了配额1/10分钟",
     //  "HttpStatusCode": 999
-    //}
+    //},
+
+    //"QoSOptions": {
+    //  "ExceptionsAllowedBeforeBreaking": 1,
+    //  "DurationOfBreak": 5000,
+    //  "TimeoutValue": 1000
+    //},
 
     //Request Id/Correlation Id
     //"RequestIdKey": "MyyRequestId"
@@ -312,6 +344,14 @@
       "Port": 8500,
       "Type": "Consul"
     }
+
+    //服务发现 - 轮询
+    //"ServiceDiscoveryProvider": {
+    //  "Host": "localhost",
+    //  "Port": 8500,
+    //  "Type": "PollConsul",
+    //  "PollingInterval": 60000
+    //}
   }
 }
 

@@ -12,7 +12,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using util;
 
-namespace order_api
+namespace product_api
 {
     public class Startup
     {
@@ -26,12 +26,11 @@ namespace order_api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers()
-                ;
+            services.AddControllers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, Microsoft.AspNetCore.Hosting.IApplicationLifetime lifetime)
         {
             if (env.IsDevelopment())
             {
@@ -57,7 +56,7 @@ namespace order_api
                 ConsulIp = Configuration["Consul:Ip"],
                 ConsulPort = Convert.ToInt32(Configuration["Consul:Port"])
             };
-            app.RegisterConsul(consulEntity);
+            app.UseConsul(lifetime,consulEntity);
         }
     }
 }
